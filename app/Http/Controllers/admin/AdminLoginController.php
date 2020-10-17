@@ -14,7 +14,6 @@ class AdminLoginController extends Controller
 
     	if ($request->isMethod('post'))
     	{
-
     		$this->validate($request,[
     			'user_id'=>'required',
     			'password'=>'required',

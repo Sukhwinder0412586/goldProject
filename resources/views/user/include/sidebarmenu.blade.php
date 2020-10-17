@@ -13,20 +13,13 @@
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>
-                    <span>Distributors</span>
+                    <span>Product Category</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="{{ route('distributor.index') }}">All Distributors</a></li>
-                    <li><a  href="{{ route('distributor.create') }}">Create Distributor</a></li>
+                    <li><a  href="">All Product Categories</a></li>
+                    <li><a  href="">Create Product Category</a></li>
                 </ul>
-            </li>
-
-            <li>
-                <a href="{{ route('distributor_coupon.distributor_coupons.create') }}">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Create Coupon</span>
-                </a>
-            </li>
+            </li>       
 
             <li class="sub-menu">
                 <a href="javascript:;" >
@@ -34,7 +27,7 @@
                     <span>Products</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="{{ route('distributor_coupon.distributor_coupons.index') }}">Distributor C</a></li>
+                    <li><a  href="">All Products</a></li>
                     <li><a  href="">Create Products</a></li>
                 </ul>
             </li>

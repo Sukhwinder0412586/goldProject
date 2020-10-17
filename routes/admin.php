@@ -20,4 +20,18 @@ Route::group(['middleware'=>'adminm'], function() {
     Route::get('/','admin\DashboardController@index')->name('dashboard');
     Route::match(['get','post'],'change-password','admin\AdminLoginController@changePassword')->name('admin.changepassword');
     Route::get('logout','admin\AdminLoginController@logout')->name('admin.logout');
+
+    Route::group([ 'prefix' => 'distributors',], function () {
+        Route::get('/', 'admin\DistributorController@index')->name('distributor.index');
+        Route::match(['get','post'],'/create','admin\DistributorController@create')->name('distributor.create');
+        Route::match(['get','post'],'/{distributor}/edit','admin\DistributorController@edit')->name('distributor.edit')->where('id', '[0-9]+');
+        Route::get('/tag/{distributor}','admin\DistributorController@destroy')->name('distributor.destroy')->where('id', '[0-9]+');
+    });
+
+    Route::group(['prefix' => 'distributor_coupons'], function () {
+        Route::get('/', 'admin\DistributorCouponController@index')->name('distributor_coupon.distributor_coupons.index');
+        Route::match(['get','post'],'/create','admin\DistributorCouponController@create')->name('distributor_coupon.distributor_coupons.create');
+        Route::match(['get','put'],'/{distributorCoupon}/edit','admin\DistributorCouponController@edit')->name('distributor_coupon.distributor_coupons.edit')->where('id', '[0-9]+');
+        Route::delete('/distributor_coupon/{distributorCoupon}','admin\DistributorCouponController@destroy')->name('distributor_coupon.distributor_coupons.destroy')->where('id', '[0-9]+');
+    });
 });
