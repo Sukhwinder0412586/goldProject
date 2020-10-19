@@ -1,5 +1,7 @@
 <?php
 
+use Barryvdh\DomPDF\PDF;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('sale_coupons','SaleCouponController@createSale')->name('salecoupon.index');
 Route::match(['get','post'],'sale_coupons/create','SaleCouponController@createSale')->name('salecoupon.create');
+Route::view('testing','pdf');
+Route::get('test',function(){
+	$pdf = App::make('dompdf.wrapper');
+	$pdf->loadView('pdf');
+	return $pdf->stream();
+});
+
