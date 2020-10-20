@@ -10,7 +10,7 @@
 
     <title>Admin Login</title>
 
-    <link href="{{ asset('ad_asset/css/3d-falling-leaves.css') }}" rel="stylesheet">
+    <link href="{{ asset('ad_asset/css/snow.css') }}" rel="stylesheet">
     
     <!-- Bootstrap core CSS -->
 
@@ -37,9 +37,11 @@
         body { background-color:#222; color:#fff;}
         h1 { margin:250px auto; text-align:center;}
         </style>
+        
 </head>
 
-  <body class="login-body main-bg" id="container">
+  <body class="login-body main-bg background" id="container" style="margin: 0px">
+  <span class="hidden" id="snowflake"><img src="https://i.pinimg.com/originals/eb/e0/ba/ebe0bab5a16088b7f66a806a7f522b23.png" width="30px" alt=""></span>
  <div>
     <div class="container" id="logo">
 		@if(Session::has('error'))
@@ -47,7 +49,8 @@
 		@endif
       <form class="form-signin" method="post">
       {{ csrf_field() }}
-        <h2 class="form-signin-heading">sign in now</h2>
+      <center><img src="/ad_asset/img/logo.png" width="200px"></center>
+        <!-- <h2 class="form-signin-heading">sign in now</h2> -->
         <div class="login-wrap">
             <input type="text" class="form-control @error('user_id') is-invalid @enderror" placeholder="User ID" name="user_id" value="{{ old('user_id') }}">
             @error('user_id')
@@ -97,7 +100,7 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/ad_asset/js/jquery.js"></script>
     <script src="/ad_asset/js/bootstrap.min.js"></script>
-    <script src="/ad_asset/js/3d-falling-leaves.js"></script>
+    <script src="/ad_asset/js/snow.js"></script>
 
 
   </body>

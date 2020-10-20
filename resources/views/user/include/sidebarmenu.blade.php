@@ -97,6 +97,15 @@
                     <li><a  href="">Create Vendor</a></li>
                 </ul>
             </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Coupon Sales</span>
+                </a>
+                <ul class="sub">
+                <li><a  href="{{ route('salecoupon.index') }}">Sales Coupon</a></li>
+                </ul>
+            </li>
 
         </ul>
         <!-- sidebar menu end-->

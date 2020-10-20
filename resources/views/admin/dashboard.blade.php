@@ -13,7 +13,7 @@ Dashboard
               <div class="value">
                   <h1 class="count">
                   </h1>
-                  <p>Total Tickets</p>
+                  <p>Total Coupons</p>
               </div>
           </section>
       </div>
@@ -25,7 +25,7 @@ Dashboard
               <div class="value">
                   <h1 class=" count2">
                   </h1>
-                  <p>Total Tours</p>
+                  <p>Pending Coupons</p>
               </div>
           </section>
       </div>
@@ -37,7 +37,7 @@ Dashboard
               <div class="value">
                   <h1 class=" count3">
                   </h1>
-                  <p>Total Visa</p>
+                  <p>Sales Coupons</p>
               </div>
           </section>
       </div>
