@@ -116,12 +116,13 @@
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>
-                    <span>Coupon Sales</span>
+                    <span>Coupon Selection</span>
                 </a>
                 <ul class="sub">
-                <li><a  href="{{ route('salecoupon.index') }}">Sales Coupon</a></li>
+                <li><a  href="{{ route('coupon_selections.index') }}">Coupon Selection</a></li>
                 </ul>
             </li>
+           
 
         </ul>
         <!-- sidebar menu end-->

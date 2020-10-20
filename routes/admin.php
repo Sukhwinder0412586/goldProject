@@ -18,6 +18,10 @@ Route::get('create','admin\AdminLoginController@create');
 Route::group(['middleware'=>'adminm'], function() {
 	// Route::view('/','admin.dashboard');
     Route::get('/','admin\DashboardController@index')->name('dashboard');
+    Route::get('select_coupons','admin\CouponSelectionController@createSale')->name('coupon_selections.index');
+    Route::match(['get','post'],'select_coupons/create','admin\CouponSelectionController@createSale')->name('coupon_selections.create');
+    Route::post('coupon_transaction_save', 'admin\CouponSelectionController@coupon_transaction_save')->name('coupon_transaction_save');	
+
     Route::get('getreport','admin\ReportController@index')->name('getreport');
     Route::post('getreports', 'admin\ReportController@getreports')->name('getreports');	
     Route::match(['get','post'],'change-password','admin\AdminLoginController@changePassword')->name('admin.changepassword');
