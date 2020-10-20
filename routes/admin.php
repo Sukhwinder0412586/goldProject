@@ -18,6 +18,8 @@ Route::get('create','admin\AdminLoginController@create');
 Route::group(['middleware'=>'adminm'], function() {
 	// Route::view('/','admin.dashboard');
     Route::get('/','admin\DashboardController@index')->name('dashboard');
+    Route::get('getreport','admin\ReportController@index')->name('getreport');
+    Route::post('getreports', 'admin\ReportController@getreports')->name('getreports');	
     Route::match(['get','post'],'change-password','admin\AdminLoginController@changePassword')->name('admin.changepassword');
     Route::get('logout','admin\AdminLoginController@logout')->name('admin.logout');
 

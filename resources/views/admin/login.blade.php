@@ -10,7 +10,10 @@
 
     <title>Admin Login</title>
 
+    <link href="{{ asset('ad_asset/css/3d-falling-leaves.css') }}" rel="stylesheet">
+    
     <!-- Bootstrap core CSS -->
+
     <link href="{{ asset('ad_asset/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('ad_asset/css/bootstrap-reset.css') }}" rel="stylesheet">
     <!--external css-->
@@ -19,16 +22,26 @@
     <link href="{{ asset('ad_asset/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('ad_asset/css/style-responsive.css') }}" rel="stylesheet" />
 
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        body { background-color:#222; color:#fff;}
+        h1 { margin:250px auto; text-align:center;}
+        </style>
 </head>
 
-  <body class="login-body">
-
-    <div class="container">
+  <body class="login-body main-bg" id="container">
+ <div>
+    <div class="container" id="logo">
 		@if(Session::has('error'))
 			{{ Session::get('error') }}
 		@endif
@@ -78,12 +91,13 @@
       </form>
 
     </div>
-
+</div>
 
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/ad_asset/js/jquery.js"></script>
     <script src="/ad_asset/js/bootstrap.min.js"></script>
+    <script src="/ad_asset/js/3d-falling-leaves.js"></script>
 
 
   </body>

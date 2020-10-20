@@ -17,7 +17,8 @@ class CreateCustCouponsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('cust_id');
             $table->string('coupon');
-            $table->string('status');
+            $table->bigInteger('distributor_id');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

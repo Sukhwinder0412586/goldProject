@@ -10,6 +10,7 @@
 
     <title>Admin Login</title>
 
+    <link href="{{ asset('ad_asset/css/3d-falling-leaves.css') }}" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('ad_asset/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('ad_asset/css/bootstrap-reset.css') }}" rel="stylesheet">
@@ -19,6 +20,9 @@
     <link href="{{ asset('ad_asset/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('ad_asset/css/style-responsive.css') }}" rel="stylesheet" />
 
+    <script src="ad_asset/js/3d-falling-leaves.min"></script>
+    <script src="ad_asset/js/3d-falling-leaves.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -26,7 +30,12 @@
     <![endif]-->
 </head>
 
-  <body class="login-body">
+  <body class="login-body main-bg">
+  <script>        jQuery(document).octoberLeaves() </script>
+
+<div class="jquery-script-center">
+
+</div>
 
     <div class="container">
 		@if(Session::has('error'))

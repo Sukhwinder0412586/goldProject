@@ -14,8 +14,10 @@ class SaleCouponController extends Controller
     {
     	if($req->isMethod('post'))
     	{
-    		$distributor = DistributorCoupon::whereUserId(Auth::id())->first();
-
+			//echo Auth::id(); die;
+			$distributor = DistributorCoupon::whereUserId(Auth::id())->first();
+			$distributor_id=Auth::id();
+		
     		if($distributor->quantity < $req->quantity)
     		{
     			return back()->with("error_message","Oops! You don't have enough coupon to sale.");
@@ -31,17 +33,20 @@ class SaleCouponController extends Controller
     			$qc = $coupon->coupon;
     			for ($i=1; $i <=$req->quantity ; $i++) { 
     				$q = $qc+$i;
-    				$array[] = ["cust_id"=>$customer_id,"coupon"=>$q];
+    				$array[] = ["cust_id"=>$customer_id,"coupon"=>$q,"distributor_id"=>$distributor_id];
     			}
     		}
     		else
     		{
     			for ($i=1; $i <=$req->quantity ; $i++) { 
     				$q = "1000".$i;
-    				$array[] = ["cust_id"=>$customer_id,"coupon"=>$q];
+    				$array[] = ["cust_id"=>$customer_id,"coupon"=>$q,"distributor_id"=>$distributor_id];
     			}
-    		}
-    		CustCoupon::create($array);
+			}
+			//echo "<pre>"; print_r($array); die;
+			// dd($array);
+			CustCoupon::insert($array);
+			//echo "hii"; die;
 
     		$distributor->quantity = $distributor->quantity - $req->quantity; 
     		$distributor->save();
@@ -53,7 +58,7 @@ class SaleCouponController extends Controller
 
     public function index()
     {
-    	CustCoupon
+    	return view('user.saleCoupon.index');
     }
 
 

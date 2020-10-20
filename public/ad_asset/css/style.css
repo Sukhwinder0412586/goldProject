@@ -20,6 +20,17 @@ body {
     -moz-font-smoothing: antialiased;
 }
 
+.main-bg {
+    background: url(../img/loginbg.jpg) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 100vh;
+}
+
+
 ul li {
     list-style: none;
 }
@@ -51,9 +62,9 @@ a, a:hover, a:focus {
 }
 
 .form-signin {
-    max-width: 330px;
+    max-width: 400px;
     margin: 100px auto 0;
-    background: #fff;
+    background: #00000080;
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
@@ -62,7 +73,7 @@ a, a:hover, a:focus {
     margin: 0;
     padding:20px 15px;
     text-align: center;
-    background: #41cac0;
+    background: #a34d03;
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     color: #fff;
@@ -89,6 +100,7 @@ a, a:hover, a:focus {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    background: #fffc;
 }
 .form-signin .form-control:focus {
     z-index: 2;
@@ -103,12 +115,12 @@ a, a:hover, a:focus {
 }
 
 .form-signin .btn-login {
-    background: #f67a6e;
+    background: #a34d03;
     color: #fff;
     text-transform: uppercase;
     font-weight: 300;
     font-family: 'Open Sans', sans-serif;
-    box-shadow: 0 4px #e56b60;
+    box-shadow: 0 4px #803b00;
     margin-bottom: 20px;
 }
 
