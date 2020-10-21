@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('sale_coupons','SaleCouponController@createSale')->name('salecoupon.index');
+Route::get('sale_coupons','SaleCouponController@index')->name('salecoupon.index');
 Route::match(['get','post'],'sale_coupons/create','SaleCouponController@createSale')->name('salecoupon.create');
 Route::view('testing','pdf');
 Route::get('test',function(){

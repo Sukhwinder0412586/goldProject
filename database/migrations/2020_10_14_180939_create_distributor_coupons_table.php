@@ -18,6 +18,7 @@ class CreateDistributorCouponsTable extends Migration
             $table->timestamps();
             $table->integer('user_id')->unsigned()->nullable()->index();
             $table->string('quantity')->nullable();
+            $table->string('total_quantity')->nullable();
 
         });
     }

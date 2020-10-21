@@ -18,6 +18,7 @@
                 <ul class="sub">
                     <li><a  href="{{ route('distributor.index') }}">All Distributors</a></li>
                     <li><a  href="{{ route('distributor.create') }}">Create Distributor</a></li>
+                    <li><a  href="{{ route('distributor_coupon.distributor_coupons.index') }}">Voucher Quantity</a></li>
                 </ul>
             </li>
 
@@ -122,6 +123,15 @@
                 <li><a  href="{{ route('coupon_selections.index') }}">Coupon Selection</a></li>
                 </ul>
             </li>
+            <!-- <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Distributor Coupon List</span>
+                </a>
+                <ul class="sub">
+                <li><a  href="{{ route('distributor_coupon.distributor_coupons.index') }}">Coupon Selection</a></li>
+                </ul>
+            </li> -->
            
 
         </ul>

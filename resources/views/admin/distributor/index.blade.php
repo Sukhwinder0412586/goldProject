@@ -43,6 +43,8 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Total Voucher </th>
+                            <th>Pending Voucher </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -51,7 +53,8 @@
                         <tr>
                             <td>{{ $distributor->name }}</td>
                             <td>{!! $distributor->email !!}</td>
-
+                            <td>{{ $distributor->distributeCoupon->total_quantity ?? '' }}</td>
+                            <td>{{ $distributor->distributeCoupon->quantity ?? '' }}</td>
                             <td>
 
                                 <a href="{{ route('distributor.edit', $distributor->id ) }}" class="btn btn-primary tooltips" title="Edit Faq" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">

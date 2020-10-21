@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SaleCouponController extends Controller
 {
+	
     public function createSale(Request $req)
     {
     	if($req->isMethod('post'))
@@ -25,7 +26,10 @@ class SaleCouponController extends Controller
 
     		$data = $req->except(['quantity','_token']);
     		$customer = Customer::firstOrCreate($data);
-    		$customer_id = $customer->id;
+			$customer_id = $customer->id;
+			$customer->quantity = ($customer->quantity == null ? 0 : $customer->quantity) + $req->quantity; 
+			$customer->dist_id = Auth::id();
+			$customer->save();
     		$array = [];
     		$coupon =  CustCoupon::orderBy('id','desc')->first();
     		if($coupon)
@@ -58,7 +62,8 @@ class SaleCouponController extends Controller
 
     public function index()
     {
-    	return view('user.saleCoupon.index');
+		$customers = Customer::where('dist_id',Auth::id())->get();
+    	return view('user.saleCoupon.index',compact('customers'));
     }
 
 

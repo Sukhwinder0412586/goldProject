@@ -29,7 +29,8 @@ class DistributorCoupon extends Model
      */
     protected $fillable = [
                   'user_id',
-                  'quantity'
+                  'quantity',
+                  'total_quantity'
               ];
 
     /**

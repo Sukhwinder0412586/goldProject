@@ -11,7 +11,7 @@ use Exception;
 class DistributorCouponController extends Controller
 {
 
-    /**
+    /**44444444444444
      * Display a listing of the distributor coupons. with new
      *
      * @return Illuminate\View\View
@@ -36,7 +36,16 @@ class DistributorCouponController extends Controller
         {
             
             $data = $this->getData($request);
-            
+            $user = DistributorCoupon::whereUserId( $request->user_id)->first();
+            if($user)
+            {
+                $user->quantity = $user->quantity + $request->quantity;
+                $user->total_quantity = $user->total_quantity + $request->quantity;
+                $user->save();
+                return redirect()->route('distributor_coupon.distributor_coupons.index')
+                ->with('success_message', 'Distributor Coupon was successfully added.');
+            }
+            $data = array_merge($data,["total_quantity"=>$request->quantity]);
             DistributorCoupon::create($data);
 
             return redirect()->route('distributor_coupon.distributor_coupons.index')

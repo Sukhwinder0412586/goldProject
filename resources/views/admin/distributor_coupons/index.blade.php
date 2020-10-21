@@ -42,7 +42,8 @@
                     <thead>
                         <tr>
                             <th>User</th>
-                            <th>Quantity</th>
+                            <th>Total Quantity</th>
+                            <th>Pending Quantity</th>
 
                             {{-- <th></th> --}}
                         </tr>
@@ -51,6 +52,7 @@
                     @foreach($distributorCoupons as $distributorCoupon)
                         <tr>
                             <td>{{ optional($distributorCoupon->user)->name }}</td>
+                            <td>{{ $distributorCoupon->total_quantity }}</td>
                             <td>{{ $distributorCoupon->quantity }}</td>
 
                            {{--  <td>

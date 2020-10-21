@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DistributorCoupon;
+use App\Models\Customer;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        $stats = DistributorCoupon::whereUserId(Auth::id())->first();
+        $customer = Customer::whereDistId(Auth::id())->count();
+        return view('user.dashboard',compact('stats','customer'));
     }
 }

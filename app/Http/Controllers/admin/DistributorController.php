@@ -13,7 +13,7 @@ class DistributorController extends Controller
 
 	public function index()
     {
-        $distributors = User::all();
+        $distributors = User::with('distributeCoupon')->get();
 
         return view('admin.distributor.index', compact('distributors'));
     }

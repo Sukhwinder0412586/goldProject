@@ -12,8 +12,9 @@ Dashboard
               </div>
               <div class="value">
                   <h1 class="count">
+                  {{$stats->total_quantity}}
                   </h1>
-                  <p>Total Coupons</p>
+                  <p>Total Voucher</p>
               </div>
           </section>
       </div>
@@ -24,8 +25,9 @@ Dashboard
               </div>
               <div class="value">
                   <h1 class=" count2">
+                  {{$stats->quantity}}
                   </h1>
-                  <p>Pending Coupons/p>
+                  <p>current Coupons</p>
               </div>
           </section>
       </div>
@@ -36,6 +38,7 @@ Dashboard
               </div>
               <div class="value">
                   <h1 class=" count3">
+                  {{$stats->total_quantity - $stats->quantity}}
                   </h1>
                   <p>Sales Coupons</p>
               </div>
@@ -48,8 +51,9 @@ Dashboard
               </div>
               <div class="value">
                   <h1 class=" count4">
+                  {{ $customer }}
                   </h1>
-                  <p>Total Special Offer</p>
+                  <p>Total Customer</p>
               </div>
           </section>
       </div>

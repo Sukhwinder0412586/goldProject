@@ -13,7 +13,7 @@
          <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <img alt="" src="/ad_asset/img/logo.png" style="width:50px;">
-            <span class="username">Jhon Doue</span>
+            <span class="username">{{Auth::user()->name}}</span>
             <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout dropdown-menu-right">
