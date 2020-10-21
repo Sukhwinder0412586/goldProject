@@ -20,7 +20,12 @@
                <div class="log-arrow-up"></div>
                <li><a href="javacript:void(0);"><i class=" fa fa-suitcase"></i>Profile</a></li>
                <li><a href="{{ route('admin.changepassword') }}"><i class="fa fa-cog"></i> Password</a></li>
-               <li><a href="{{ route('admin.logout') }}"><i class="fa fa-key"></i> Log Out</a></li>
+               <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-key"></i> Log Out</a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                                  </li>
             </ul>
          </li>
          <!-- user login dropdown end -->

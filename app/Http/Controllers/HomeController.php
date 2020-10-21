@@ -30,9 +30,10 @@ class HomeController extends Controller
         $customer = Customer::whereDistId(Auth::id())->count();
         return view('user.dashboard',compact('stats','customer'));
     }
-    public function test()
+
+    public function couponTransaction()
     {
-       
-        return view('sunakh.index');
+        $data = CouponTransaction::whereDistId(Auth::id())->get();
+        return view('user.couponTransactionList',compact('data'));
     }
 }

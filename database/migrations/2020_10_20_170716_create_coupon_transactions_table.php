@@ -19,6 +19,7 @@ class CreateCouponTransactionsTable extends Migration
             $table->string('amount');
             $table->string('cust_id');
             $table->string('distributor_id');
+            $table->string('is_delivered')->default(0);
             $table->timestamps();
         });
     }

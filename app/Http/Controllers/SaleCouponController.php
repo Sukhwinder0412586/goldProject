@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\DistributorCoupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class SaleCouponController extends Controller
 {
@@ -50,12 +51,15 @@ class SaleCouponController extends Controller
 			//echo "<pre>"; print_r($array); die;
 			// dd($array);
 			CustCoupon::insert($array);
+           
 			//echo "hii"; die;
 
     		$distributor->quantity = $distributor->quantity - $req->quantity; 
     		$distributor->save();
-    		return redirect()->route('salecoupon.index')
-                ->with('success_message', 'Coupon has successfully saled.');
+
+            
+    		// return redirect()->route('salecoupon.index')
+      //           ->with('success_message', 'Coupon has successfully saled.');
     	}
     	return view('user.saleCoupon.create');
     }
@@ -66,5 +70,12 @@ class SaleCouponController extends Controller
     	return view('user.saleCoupon.index',compact('customers'));
     }
 
+    public function downloadPdf($name,$id)
+    {
+        $data = CustCoupon::whereCustId($id)->get();
+        $data = ["data"=>$data];
+        $pdf = PDF::loadView('pdf',$data);
+        return $pdf->download($name.'_vouchers.pdf');
+    }
 
 }

@@ -10,7 +10,8 @@ class CouponTransaction extends Model
                   'cust_id',
                   'coupon',
                   'distributor_id',
-                  'amount'
+                  'amount',
+                  'is_delivered'
               ];
 
 

@@ -38,7 +38,7 @@ Dashboard
               </div>
               <div class="value">
                   <h1 class=" count3">
-                  {{$stats->total_quantity - $stats->quantity}}
+                  {{ ($stats->total_quantity == null) ? 0 : $stats->total_quantity - $stats->quantity}}
                   </h1>
                   <p>Sales Coupons</p>
               </div>

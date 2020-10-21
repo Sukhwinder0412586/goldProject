@@ -1,6 +1,6 @@
 <?php
 
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('sale_coupons','SaleCouponController@index')->name('salecoupon.index');
 Route::match(['get','post'],'sale_coupons/create','SaleCouponController@createSale')->name('salecoupon.create');
+Route::get('download-pdf/{name}/{id}','SaleCouponController@downloadPdf')->name('saleDownloadPdf');
 Route::view('testing','pdf');
+
 Route::get('test',function(){
-	$pdf = App::make('dompdf.wrapper');
-	$pdf->loadView('pdf');
-	return $pdf->stream();
+
+	// $pdf = App::make('dompdf.wrapper');
+	$data = [["coupon"=>123],["coupon"=>123],["coupon"=>123],["coupon"=>123],["coupon"=>123]];
+	$data = ["data"=>$data];
+	$pdf = PDF::loadView('pdf',$data);
+	 $pdf->download('test.pdf');
 });
 

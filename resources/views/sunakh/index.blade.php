@@ -51,9 +51,15 @@
                     <div class="header-right">
                         <div class="search-input">
                             <center><div class="jw-button" >
-                            <a href="#">
-                               Login Now</a>
-                            </div></center>
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @else
+                                <a  class="nav-link" href="{{ route('home') }}">
+                                    {{ Auth::user()->name }} 
+                                </a>
+                            @endguest
                         </div>
                     </div>
                 </div>

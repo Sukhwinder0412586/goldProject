@@ -3,117 +3,65 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Document</title>
-	<style>
-		/* 
-
-RESPONSTABLE 1.0 by jordyvanraaij
-  Designed mobile first!
-
-If you like this solution, you might also want to check out the 2.0 version:
-  https://gist.github.com/jordyvanraaij/9068893
-
-*/
-.responstable {
-  /*margin: 1em 0;*/
-  width: 100%;
-  background: #FFF;
-  color: #024457;
-  /*border-radius: 10px;*/
-  /*border: 1px solid #167F92;*/
-  overflow: hidden;
+  <style>
+    .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
 }
-.responstable tr {
-  border-top: 1px solid #167F92;
-  border-bottom: 1px solid #167F92;
+.table td,
+.table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }
-.responstable tr:nth-child(odd) {
-  background-color: #EAF3F3;
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
 }
-.responstable th {
-  display: none;
-  /*border: 1px solid #FFF;*/
-  background-color: #167F92;
-  color: #FFF;
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
 }
-.responstable td {
-  display: block;
+.table-bordered {
+    border: 1px solid #dee2e6;
 }
-.responstable td:first-child {
-  padding-top: 0.5em;
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #dee2e6;
 }
-.responstable td:last-child {
-  padding-bottom: 0.5em;
-}
-.responstable td:before {
-  content: attr(data-th) ": ";
-  font-weight: bold;
-  width: 8em;
-  display: inline-block;
-}
-@media (min-width: 480px) {
-  .responstable td:before {
-    display: none;
-  }
-}
-@media (min-width: 480px) {
-  .responstable td {
-    border: 1px solid #D9E4E6;
-  }
-}
-.responstable th, .responstable td {
-  text-align: left;
-  margin: 0.5em 1em;
-}
-	@media (min-width: 480px) {
-	  .responstable th, .responstable td {
-	    display: table-cell;
-	    padding: 1em;
-	  }
-  .responstable th:first-child, .responstable td:first-child {
-    text-align: center;
-  }
+.table-bordered thead td,
+.table-bordered thead th {
+    border-bottom-width: 2px;
 }
 
-body {
-  padding: 0 2em;
-  font-family: Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
-}
-
-h1 {
-  font-family: Verdana;
-  font-weight: normal;
-  color: #024457;
-}
-h1 span {
-  color: #167F92;
-}
-	</style>
+    .table {
+        border-collapse: collapse !important;
+    }
+    .table td,
+    .table th {
+        background-color: #fff !important;
+        text-align: center;
+    }
+    
+  </style>
 </head>
 <body>
-	<table class="responstable">
-		<tr>
-		    <th>Main driver</th>
-		    <th>First name</th>
-		    <th>Surname</th>
-		    
-		 </tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
-		</tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
-		</tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
-		</tr>
-	</table>
+  <div class="adv-table" style="text-align: center;">
+    <img alt="" src="{{ public_path('/ad_asset/img/logo.png') }}" style="width:50px;">
+  	<table class="display table table-bordered table-striped" id="dynamic-table">
+  		<tr>
+          <th style="background: #141514!important;color: #fff">SR</th>
+  		    <th style="background: #141514!important;color: #fff">Voucher</th>   
+  		 </tr>
+       
+       @foreach($data as $d)
+    		<tr>
+    			<td>{{ $loop->iteration }}</td>
+    			<td>{{ $d['coupon'] }}</td>
+    		</tr>
+      @endforeach
+  		
+  	</table>
+  </div>
 </body>
 </html>

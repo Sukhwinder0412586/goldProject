@@ -19,7 +19,7 @@
         <header class="card-header clearfix">
 
             <div class="pull-left">
-                <h4>Customers</h4>
+                <h4>Winners Coupon</h4>
             </div>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
