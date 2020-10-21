@@ -12,9 +12,9 @@ use Barryvdh\DomPDF\PDF;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Route::get('/site', 'HomeController@test')->name('sunakh.index');
 Route::get('/', function () {
-    return view('welcome');
+    return view('sunakh.index');
 });
 
 Auth::routes();

@@ -30,4 +30,9 @@ class HomeController extends Controller
         $customer = Customer::whereDistId(Auth::id())->count();
         return view('user.dashboard',compact('stats','customer'));
     }
+    public function test()
+    {
+       
+        return view('sunakh.index');
+    }
 }
