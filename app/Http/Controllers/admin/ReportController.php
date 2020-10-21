@@ -27,7 +27,7 @@ class ReportController extends Controller
         ->leftjoin("cust_coupons","cust_coupons.distributor_id", "=", "users.id")
         ->leftjoin("customers","customers.id", "=", "cust_coupons.cust_id")
         
-        ->select("users.name as UserName","customers.name","customers.number","distributor_coupons.quantity","distributor_coupons.total_quantity")
+        ->select("users.name as UserName","customers.name","customers.number","distributor_coupons.quantity","distributor_coupons.total_quantity","customers.quantity as cust_quantity")
         ->where(DB::raw("CAST(cust_coupons.created_at as date)"),">=",$data['from'])
         ->where(DB::raw("CAST(cust_coupons.created_at as date)"),"<=",$data['to'])
         ->groupBy("users.name","customers.number");
@@ -41,10 +41,10 @@ class ReportController extends Controller
 
         //create a file pointer
         $f = fopen('php://memory', 'w');
-        $fields = array('Distributor Name', 'Customer Name', 'Customer Phone Number','Total Quantity','Pending Quantity');
+        $fields = array('Distributor Name', 'Customer Name', 'Customer Phone Number','Total Quantity','Pending Quantity','Customer Buying Quantity');
         fputcsv($f, $fields, $delimiter);
         foreach ($custDetails as $key => $totalhits) {
-          $lineData = array($totalhits->UserName, $totalhits->name, $totalhits->number, $totalhits->total_quantity,$totalhits->quantity);
+          $lineData = array($totalhits->UserName, $totalhits->name, $totalhits->number, $totalhits->total_quantity,$totalhits->quantity,$totalhits->cust_quantity);
          fputcsv($f, $lineData, $delimiter);
      }
      //print_r( $lineData); die;
