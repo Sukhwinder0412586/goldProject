@@ -17,20 +17,17 @@ Route::get('/', function () {
     return view('sunakh.index');
 });
 
-Auth::routes();
+Auth::routes([
+  'register' => false, // Registration Routes...
+  'reset' => false, // Password Reset Routes...
+  'verify' => false, // Email Verification Routes...
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('sale_coupons','SaleCouponController@index')->name('salecoupon.index');
-Route::match(['get','post'],'sale_coupons/create','SaleCouponController@createSale')->name('salecoupon.create');
-Route::get('download-pdf/{name}/{id}','SaleCouponController@downloadPdf')->name('saleDownloadPdf');
-Route::view('testing','pdf');
+Route::get('sale_coupons','SaleCouponController@index')->name('salecoupon.index')->middleware('auth');
+Route::match(['get','post'],'sale_coupons/create','SaleCouponController@createSale')->name('salecoupon.create')->middleware('auth');
+Route::get('download-pdf/{name}/{id}','SaleCouponController@downloadPdf')->name('saleDownloadPdf')->middleware('auth');
+Route::get('winners_coupon','HomeController@couponTransaction')->name('winners_coupon');
+Route::get('winners_status/{id}','HomeController@updateWinnerStatus')->name('winner_status');
 
-Route::get('test',function(){
-
-	// $pdf = App::make('dompdf.wrapper');
-	$data = [["coupon"=>123],["coupon"=>123],["coupon"=>123],["coupon"=>123],["coupon"=>123]];
-	$data = ["data"=>$data];
-	$pdf = PDF::loadView('pdf',$data);
-	 $pdf->download('test.pdf');
-});
 

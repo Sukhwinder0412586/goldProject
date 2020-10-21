@@ -15,6 +15,11 @@ class CouponTransaction extends Model
               ];
 
 
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer','cust_id');
+    }
+
    
 
 }

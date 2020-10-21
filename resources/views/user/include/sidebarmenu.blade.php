@@ -9,6 +9,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            
 
 
            
@@ -21,6 +22,13 @@
                     <li><a  href="{{ route('salecoupon.index') }}">All Sales Coupons</a></li>
                     <li><a  href="{{ route('salecoupon.create') }}">Sales Coupon</a></li>
                 </ul>
+            </li>
+
+            <li>
+                <a class="active" href="{{ route('winners_coupon') }}">
+                    <i class="fa fa-laptop"></i>
+                    <span>Winners Coupon</span>
+                </a>
             </li>
 
         </ul>

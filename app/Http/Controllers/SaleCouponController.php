@@ -57,9 +57,11 @@ class SaleCouponController extends Controller
     		$distributor->quantity = $distributor->quantity - $req->quantity; 
     		$distributor->save();
 
-            
-    		// return redirect()->route('salecoupon.index')
-      //           ->with('success_message', 'Coupon has successfully saled.');
+            $to = reset($array);
+            $from = end($array);
+            $message = "You have successfully purchased voucher from ".$to['coupon']." to ".$from['coupon'];
+    		return redirect()->route('salecoupon.index')
+               ->with('success_message', $message);
     	}
     	return view('user.saleCoupon.create');
     }

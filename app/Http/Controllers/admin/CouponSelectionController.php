@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\User;
 use DB;
+use App\Mail\LuckyDrawEmail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class CouponSelectionController extends Controller
 {
@@ -18,6 +21,7 @@ class CouponSelectionController extends Controller
     {
     	if($request->isMethod('post'))
     	{
+    		$this->validator($request->all())->validate();
 			$data = CustCoupon::with('customer','distributor')->where('coupon' ,$request->voucher)->first();
 			return view('admin.coupon_selections.confirm_selection',compact('data'));
 			
@@ -25,6 +29,14 @@ class CouponSelectionController extends Controller
 		
 		$users = User::pluck('name','id')->all();
     	return view('admin.coupon_selections.create',compact('users'));
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'voucher' => ['required', 'exists:cust_coupons,coupon'],
+           
+        ]);
     }
 
     public function index()
@@ -36,7 +48,9 @@ class CouponSelectionController extends Controller
     {
 		
 		$data = $request->input();
-		CouponTransaction::create($data);
+		$data = CouponTransaction::create($data);
+		$user = User::whereId($request->distributor_id)->first();
+		Mail::to($user->email)->send(new LuckyDrawEmail($data));
 		return redirect()->route('coupon_selections.index')
                 ->with('success_message', 'Voucher Send Successfully');
 	}

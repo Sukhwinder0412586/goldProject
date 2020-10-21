@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DistributorCoupon;
 use App\Models\Customer;
+use App\Models\CouponTransaction;
 use Auth;
 
 class HomeController extends Controller
@@ -33,7 +34,16 @@ class HomeController extends Controller
 
     public function couponTransaction()
     {
-        $data = CouponTransaction::whereDistId(Auth::id())->get();
+        $data = CouponTransaction::with('customer')->whereDistributorId(Auth::id())->get();
         return view('user.couponTransactionList',compact('data'));
+    }
+
+    public function updateWinnerStatus($id)
+    {
+        $obj = CouponTransaction::whereId($id)->first();
+        $obj->is_delivered = 1;
+        $obj->save();
+        return redirect()->route('winners_coupon')
+                ->with('success_message', 'Successully delivered');
     }
 }

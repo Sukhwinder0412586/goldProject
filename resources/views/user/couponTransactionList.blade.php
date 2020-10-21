@@ -22,17 +22,13 @@
                 <h4>Winners Coupon</h4>
             </div>
 
-            <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('salecoupon.create') }}" class="btn btn-success" title="Create New Faq">
-                    <i class="fa fa-plus-square" aria-hidden="true"></i>
-                </a>
-            </div>
+           
 
         </header>
         
-        @if(count($customers) == 0)
+        @if(count($data) == 0)
             <div class="card-body text-center">
-                <h6>No Customers Available.</h6>
+                <h6>No Winners yet.</h6>
             </div>
         @else
         <div class="card-body">
@@ -42,21 +38,24 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Phone Number</th>
-                            <th>Quantity </th>
-                            <th>Distributor </th>
+                            <th>Voucher</th>
+                            <th>Amount </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($customers as $customer)
+                    @foreach($data as $dt)
                         <tr>
-                            <td>{{ $customer->name }}</td>
-                            <td>{!! $customer->number !!}</td>
-                            <td>{{ $customer->quantity }}</td>
-                            <td>{{ Auth::user()->name }}</td>
+                            <td>{{ $dt->customer->name }}</td>
+                            <td>{!! $dt->coupon !!}</td>
+                            <td>{{ $dt->amount }}</td>
                             <td>
-                                <a href="{{ route('saleDownloadPdf',['name'=>$customer->name,'id'=>$customer->id]) }}">Download PDF</a>
+                                @if($dt->is_delivered == 0)
+
+                                    <a href="{{ route('winner_status',['id'=>$dt->id]) }}">Not Delivered</a>
+                                @else
+                                    <span style="color: green;">Delivered</span>
+                                @endif
                             </td>
                             
                         </tr>
