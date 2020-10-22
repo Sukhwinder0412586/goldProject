@@ -50,6 +50,7 @@
                     </thead>
                     <tbody>
                     @foreach($customers as $customer)
+                    
                         <tr>
                             <td>{{ $customer->name }}</td>
                             <td>{!! $customer->number !!}</td>

@@ -7,6 +7,8 @@ use App\Models\DistributorCoupon;
 use App\Models\Customer;
 use App\Models\CouponTransaction;
 use Auth;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -45,5 +47,34 @@ class HomeController extends Controller
         $obj->save();
         return redirect()->route('winners_coupon')
                 ->with('success_message', 'Successully delivered');
+    }
+    public function changePassword(Request $request)
+    {
+        if ($request->isMethod('post'))
+        {
+            $this->validate($request,[
+            'oldpassword'=>'required',
+            'password'=>'required|confirmed',
+            'password_confirmation'=>'required',
+            ]);
+
+            $id = Auth::user()->id;
+            $password = Auth::user()->password;
+
+            if (Hash::check($request->oldpassword, $password)) 
+            {
+                $admin = User::find($id);
+                $admin->password = Hash::make($request->password);
+                $admin->save();
+                return back()->with('message','Password changed Successfully');
+            }
+            else
+            {
+            	return back()->with('error','Invalid Old Password');
+            }
+        }
+
+        return view('user.changepassword');
+        
     }
 }

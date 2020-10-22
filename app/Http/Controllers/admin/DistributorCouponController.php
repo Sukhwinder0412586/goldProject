@@ -70,11 +70,13 @@ class DistributorCouponController extends Controller
         {
             
             $data = $this->getData($request);
+           // print_r($data); die;
             
             $distributorCoupon = DistributorCoupon::findOrFail($id);
             $distributorCoupon->user_id = $request->user_id;
-            $distributorCoupon->quantity = $user->quantity + $request->quantity;
-            $distributorCoupon->total_quantity = $user->total_quantity + $request->quantity;
+            //echo "hii"; die;
+            $distributorCoupon->quantity =$distributorCoupon->quantity + $request->quantity;
+            $distributorCoupon->total_quantity = $distributorCoupon->total_quantity + $request->quantity;
             $distributorCoupon->save();
 
             return redirect()->route('distributor_coupon.distributor_coupons.index')

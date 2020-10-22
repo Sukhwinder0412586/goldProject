@@ -19,13 +19,15 @@ class DashboardController extends Controller
     public function customers()
     {
         $customers = Customer::with('distributor')->get();
+       // print_r( $customers); die;
         
         return view('admin.customers',compact('customers'));
     }
 
     public function downloadPdf($name,$id)
     {
-    	$data = CustCoupon::with('customer','distributor')->whereCustId($id)->get();
+        $data = CustCoupon::with('customer','distributor')->whereCustId($id)->get();
+       // dd($data);
         $data = ["data"=>$data];
         $pdf = PDF::loadView('admin.pdf',$data);
         return $pdf->download($name.'_voucher.pdf');

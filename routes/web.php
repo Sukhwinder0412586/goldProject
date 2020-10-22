@@ -22,6 +22,7 @@ Auth::routes([
   'reset' => false, // Password Reset Routes...
   'verify' => false, // Email Verification Routes...
 ]);
+Route::match(['get','post'],'change-password','HomeController@changePassword')->name('user.changepassword');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('sale_coupons','SaleCouponController@index')->name('salecoupon.index')->middleware('auth');

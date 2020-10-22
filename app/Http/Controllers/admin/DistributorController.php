@@ -78,6 +78,12 @@ class DistributorController extends Controller
 
         return view('admin.distributor.edit', compact('distributor'));
     }
+    public function destroy($id,Request $request){
+        $affectedRows = User::where('id', '=', $id)->delete();
+        return redirect()->route('distributor.index')
+                ->with('success_message', 'Distributor delete successfully .');
+    }
+
 
    
 

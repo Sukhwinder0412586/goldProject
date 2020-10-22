@@ -26,10 +26,11 @@ class SaleCouponController extends Controller
     		}
 
     		$data = $req->except(['quantity','_token']);
-            $dt = Customer::whereNumber($request->number)->first();
-            if($dt)
+			$customer = Customer::whereNumber($req->number)->first();
+			//echo "<pre>";print_r($dt); die;
+            if ($customer)
             {
-                $customer_id = $dt->id;
+                $customer_id = $customer->id;
             }
             else
             {
