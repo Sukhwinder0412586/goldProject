@@ -32,7 +32,7 @@
         
         @if(count($distributors) == 0)
             <div class="card-body text-center">
-                <h6>No Faqs Available.</h6>
+                <h6>No Distrbutor Created.</h6>
             </div>
         @else
         <div class="card-body">

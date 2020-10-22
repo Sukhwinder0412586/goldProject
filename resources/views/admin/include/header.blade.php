@@ -3,7 +3,7 @@
    <div class="sidebar-toggle-box">	<i class="fa fa-bars"></i>
    </div>
    <!--logo start-->
-   <a href="{{ route('dashboard') }}" class="logo">Bhagat<span>Puran Singh</span></a>
+   <a href="{{ route('dashboard') }}" class="logo">Sunakh<span> Enterprises</span></a>
    
    <div class="top-nav ">
       <!--search & user info start-->
@@ -18,7 +18,6 @@
             </a>
             <ul class="dropdown-menu extended logout dropdown-menu-right">
                <div class="log-arrow-up"></div>
-               <li><a href="javacript:void(0);"><i class=" fa fa-suitcase"></i>Profile</a></li>
                <li><a href="{{ route('admin.changepassword') }}"><i class="fa fa-cog"></i> Password</a></li>
                <li><a href="{{ route('admin.logout') }}"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>

@@ -3,7 +3,7 @@
    <div class="sidebar-toggle-box">	<i class="fa fa-bars"></i>
    </div>
    <!--logo start-->
-   <a href="{{ route('dashboard') }}" class="logo">Bhagat<span>Puran Singh</span></a>
+   <a href="{{ route('dashboard') }}" class="logo">Sunakh<span> Enterprises</span></a>
    
    <div class="top-nav ">
       <!--search & user info start-->
