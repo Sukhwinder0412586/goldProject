@@ -17,7 +17,9 @@ Route::get('create','admin\AdminLoginController@create');
 
 Route::group(['middleware'=>'adminm'], function() {
 	// Route::view('/','admin.dashboard');
+    Route::get('customers','admin\DashboardController@customers')->name('admin.customers');
     Route::get('/','admin\DistributorController@index')->name('dashboard');
+    Route::get('admin_download_pdf/{name}/{id}','admin\DashboardController@downloadPdf')->name('admin.pdf');
     Route::get('select_coupons','admin\CouponSelectionController@createSale')->name('coupon_selections.index');
     Route::match(['get','post'],'select_coupons/create','admin\CouponSelectionController@createSale')->name('coupon_selections.create');
     Route::post('coupon_transaction_save', 'admin\CouponSelectionController@coupon_transaction_save')->name('coupon_transaction_save');	

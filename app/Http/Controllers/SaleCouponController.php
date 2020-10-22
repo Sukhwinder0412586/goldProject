@@ -26,8 +26,17 @@ class SaleCouponController extends Controller
     		}
 
     		$data = $req->except(['quantity','_token']);
-    		$customer = Customer::firstOrCreate($data);
-			$customer_id = $customer->id;
+            $dt = Customer::whereNumber($request->number)->first();
+            if($dt)
+            {
+                $customer_id = $dt->id;
+            }
+            else
+            {
+                $customer = Customer::firstOrCreate($data);
+                $customer_id = $customer->id;    
+            }
+    		
 			$customer->quantity = ($customer->quantity == null ? 0 : $customer->quantity) + $req->quantity; 
 			$customer->dist_id = Auth::id();
 			$customer->save();

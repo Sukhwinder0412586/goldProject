@@ -54,6 +54,14 @@
                 <li><a  href="{{ route('coupon_selections.index') }}">Coupon Selection</a></li>
                 </ul>
             </li>
+
+            
+            <li>
+                <a class="active" href="{{ route('admin.customers') }}">
+                    <i class="fa fa-laptop"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
             <!-- <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>

@@ -20,6 +20,10 @@ class CouponTransaction extends Model
         return $this->belongsTo('App\Models\Customer','cust_id');
     }
 
+    public function distributor()
+    {
+        return $this->belongsTo('App\User','distributor_id');
+    }
    
 
 }

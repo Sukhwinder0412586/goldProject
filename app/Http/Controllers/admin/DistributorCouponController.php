@@ -72,14 +72,17 @@ class DistributorCouponController extends Controller
             $data = $this->getData($request);
             
             $distributorCoupon = DistributorCoupon::findOrFail($id);
-            $distributorCoupon->update($data);
+            $distributorCoupon->user_id = $request->user_id;
+            $distributorCoupon->quantity = $user->quantity + $request->quantity;
+            $distributorCoupon->total_quantity = $user->total_quantity + $request->quantity;
+            $distributorCoupon->save();
 
             return redirect()->route('distributor_coupon.distributor_coupons.index')
                 ->with('success_message', 'Distributor Coupon was successfully updated.');
         }
 
-        $distributorCoupon = DistributorCoupon::findOrFail($id);
-        $users = User::pluck('id','id')->all();
+        $distributorCoupon = DistributorCoupon::with('user')->findOrFail($id);
+        $users = User::pluck('name','id')->all();
 
         return view('admin.distributor_coupons.edit', compact('distributorCoupon','users'));
     }
@@ -117,8 +120,8 @@ class DistributorCouponController extends Controller
     protected function getData(Request $request)
     {
         $rules = [
-                'user_id' => 'nullable',
-            'quantity' => 'string|min:1|nullable', 
+                'user_id' => 'required|nullable',
+            'quantity' => 'required|string|min:1|nullable', 
         ];
 
         

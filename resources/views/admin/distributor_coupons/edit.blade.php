@@ -49,4 +49,17 @@
         </div>
     </div>
 
+@stop
+@section('js')
+<script type="text/javascript" src="/ad_asset/assets/select2/js/select2.min.js"></script>
+<script src="/ad_asset/js/advanced-form-components.js"></script>
+<!--select2-->
+<script type="text/javascript">
+
+  $(document).ready(function () {
+      $(".js-example-basic-single").select2();
+
+      $(".js-example-basic-multiple").select2();
+  });
+</script>
 @endsection
