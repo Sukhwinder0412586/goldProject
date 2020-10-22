@@ -44,7 +44,7 @@
                             <th>User</th>
                             <th>Total Quantity</th>
                             <th>Pending Quantity</th>
-
+                            <th></th>
                             {{-- <th></th> --}}
                         </tr>
                     </thead>
@@ -55,25 +55,25 @@
                             <td>{{ $distributorCoupon->total_quantity }}</td>
                             <td>{{ $distributorCoupon->quantity }}</td>
 
-                           {{--  <td>
+                            <td>
 
-                                <form method="POST" action="{!! route('distributor_coupon.distributor_coupons.destroy', $distributorCoupon->id) !!}" accept-charset="UTF-8">
+                                {{-- <form method="POST" action="{!! route('distributor_coupon.distributor_coupons.destroy', $distributorCoupon->id) !!}" accept-charset="UTF-8">
                                 <input name="_method" value="DELETE" type="hidden">
-                                {{ csrf_field() }}
+                                {{ csrf_field() }} --}}
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
                                         <a href="{{ route('distributor_coupon.distributor_coupons.edit', $distributorCoupon->id ) }}" class="btn btn-primary tooltips" title="Edit Distributor Coupon" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
 
-                                        <button type="submit" class="btn btn-danger tooltips" title="Delete Distributor Coupon" onclick="return confirm(&quot;Click Ok to delete Distributor Coupon.&quot;)" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">
+                                       {{--  <button type="submit" class="btn btn-danger tooltips" title="Delete Distributor Coupon" onclick="return confirm(&quot;Click Ok to delete Distributor Coupon.&quot;)" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </button>
+                                        </button> --}}
                                     </div>
 
-                                </form>
+                                {{-- </form> --}}
                                 
-                            </td> --}}
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

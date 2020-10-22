@@ -22,11 +22,15 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="{{ route('distributor_coupon.distributor_coupons.create') }}">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Create Coupon</span>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Vouchers</span>
                 </a>
+                <ul class="sub">
+                    <li><a  href="{{ route('distributor_coupon.distributor_coupons.index') }}">Voucher Quantity</a></li>
+                    <li><a  href="{{ route('distributor_coupon.distributor_coupons.create') }}">Create Voucher</a></li>
+                </ul>
             </li>
 
             <li class="sub-menu">
