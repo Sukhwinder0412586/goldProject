@@ -23,6 +23,15 @@ class CouponSelectionController extends Controller
     	{
     		$this->validator($request->all())->validate();
 			$data = CustCoupon::with('customer','distributor')->where('coupon' ,$request->voucher)->first();
+			//echo $data->cust_coupons; die;
+			if($data->coupon_status==0){
+				
+			}
+			else{
+				return redirect()->route('coupon_selections.index')
+                ->with('error_message', 'Coupon already used, Please select another coupon');
+			}
+			
 			return view('admin.coupon_selections.confirm_selection',compact('data'));
 			
 		}
@@ -48,6 +57,9 @@ class CouponSelectionController extends Controller
     {
 		
 		$data = $request->input();
+		$cust_coupons = CustCoupon::with('customer','distributor')->where('coupon' ,$request->coupon)->first();
+		$cust_coupons->coupon_status ='1';
+		$cust_coupons->save();
 		$data = CouponTransaction::create($data);
 		$user = User::whereId($request->distributor_id)->first();
 		Mail::to($user->email)->send(new LuckyDrawEmail($data));

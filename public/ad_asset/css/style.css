@@ -401,18 +401,24 @@ ul.sidebar-menu li a.active i {
 
 .wrapper {
 
-    margin: 0px auto;
-    padding:80px 15px 15px 15px;
-    max-width: 1200px;
+margin: 0px auto;
 
-    /*display: inline-block;*/
-    /*width: 100%;*/
-    /*margin-top: 60px;*/
-    /*padding: 15px;*/
+padding: 120px 15px 15px 15px;
+
+max-width: 1200px;
+
+/*display: inline-block;*/
+
+/*width: 100%;*/
+
+/*margin-top: 60px;*/
+
+/*padding: 15px;*/
 }
 
 a.logo {
-    font-size: 21px;
+    font-family: cursive;
+    font-size: 16px;
     color: #2e2e2e;
     float: left;
     margin-top: 15px;
@@ -6622,3 +6628,40 @@ header.blue-bg .search:focus {
 }
 
 
+@media(min-width:240px){
+    .sidebar-toggle-box {width: 10%;float: left;}
+    a.logo {
+        font-family: cursive;
+        font-size: 14px;
+        color: #2e2e2e;
+        float: left;
+        margin-top: 15px;
+        text-transform: uppercase;
+        width: 90%;
+    }
+    .top-nav {width: 100%;float: left;margin-bottom: 14px;}
+}
+
+@media(min-width:1100px){
+    .sidebar-toggle-box {
+        float: left;
+        padding-right: 15px;
+        margin-top: 20px;
+        width: 5%;
+    }
+    
+    a.logo {
+        font-family: cursive;
+        width: 55%;
+        font-size: 20px;
+        color: #2e2e2e;
+        float: left;
+        margin-top: 15px;
+        text-transform: uppercase;
+    }
+    
+    .top-nav { width: 40%;
+    float: left;
+position: relative;
+}
+}

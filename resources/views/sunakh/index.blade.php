@@ -122,6 +122,35 @@
         </div>
         <!--Main Slider: End-->
 
+<!-- Countdown Start -->
+
+<div class="timebg">
+        <div class="container">
+  <h1 id="headline">Next Winner Announcement</h1>
+  <div class="section-header">
+                <div class="section-title">
+                    <h2>Will be Held On</h2>
+                </div>
+</div>
+  <div id="countdown">
+    <ul>
+      <li><span id="days"></span>days</li>
+      <li><span id="hours"></span>Hours</li>
+      <li><span id="minutes"></span>Minutes</li>
+      <li><span id="seconds"></span>Seconds</li>
+    </ul>
+  </div>
+  <div class="message">
+    <div id="content">
+      <span class="emoji">🥳</span>
+      <span class="emoji">🎉</span>
+      <span class="emoji">🎂</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Countdown End -->
         <!-- Team Member: Begin -->
         <section class="team-member-wrap">
             <div class="section-header">
@@ -147,7 +176,7 @@
                 </div>
             </div>
         </div>
-        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+        <div id="carousel-example" class="carousel slide " data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
@@ -821,6 +850,7 @@
     </footer>
     <!-- Footer: End -->
 
+    <script src="/assets/js/datetime.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery-ui.min.js"></script>
     <script src="/assets/js/modernizr.js"></script>

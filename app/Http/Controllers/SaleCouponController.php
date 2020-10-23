@@ -84,7 +84,8 @@ class SaleCouponController extends Controller
 
     public function downloadPdf($name,$id)
     {
-        $data = CustCoupon::whereCustId($id)->get();
+		$data = CustCoupon::whereCustId($id)->get();
+		//print_r($data); die;
         $data = ["data"=>$data];
         $pdf = PDF::loadView('pdf',$data);
         return $pdf->download($name.'_vouchers.pdf');

@@ -344,9 +344,9 @@
     }
 
     .top-nav {
-        position: absolute;
-        right: 10px;
-        top: 0px;
+        /* position: absolute; */
+        /* right: 10px; */
+        /* top: 0px; */
     }
 
     .horizontal-menu .navbar-nav > li > a {
@@ -474,9 +474,9 @@
     }
 
     .top-nav {
-        position: absolute;
-        right: 10px;
-        top: 0px;
+        /* position: absolute; */
+        /* right: 10px; */
+        /* top: 0px; */
     }
 
     .horizontal-menu .navbar-nav > li > a {

@@ -38,7 +38,7 @@
         <div class="card-body">
             <div class="adv-table">
 
-                <table class="display table table-bordered table-striped" id="dynamic-table">
+                <table class="display table table-bordered table-striped table-responsive" id="dynamic-table">
                     <thead>
                         <tr>
                             <th>Name</th>
