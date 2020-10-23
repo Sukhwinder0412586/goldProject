@@ -54,7 +54,7 @@ class SaleCouponController extends Controller
     		else
     		{
     			for ($i=1; $i <=$req->quantity ; $i++) { 
-    				$q = "1000".$i;
+    				$q = "1000"+$i;
     				$array[] = ["cust_id"=>$customer_id,"coupon"=>$q,"distributor_id"=>$distributor_id];
     			}
 			}

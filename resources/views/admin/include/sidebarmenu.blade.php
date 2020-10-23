@@ -62,6 +62,19 @@
                     <span>Customers</span>
                 </a>
             </li>
+            <li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Change User Password</span>
+                </a>
+                <ul class="sub">
+                <li><a  href="{{  route('admin.distributor_changepassword') }}"> Change User Password</a></li>
+                </ul>
+            </li>
+               
+            
+            
             <!-- <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use App\User;
 class AdminLoginController extends Controller
 {
     public function login(Request $request)
@@ -33,6 +34,37 @@ class AdminLoginController extends Controller
     	return view('admin.login');
     	
     }
+    public function distributor_changePassword(Request $request)
+    {
+        
+        if ($request->isMethod('post'))
+        {
+            $this->validate($request,[
+            'password'=>'required'
+            ]);
+
+            $id =User::find($request->user_id);
+           // print_r($id); die;
+            //$password = Auth::guard('admin')->user()->password;
+
+            if ($id) 
+            {
+                $admin = User::find($request->user_id);
+                $admin->password = Hash::make($request->password);
+                $admin->save();
+                return back()->with('message','Password changed Successfully');
+            }
+            else
+            {
+            	return back()->with('error','Invalid Old Password');
+            }
+        }
+        $users = User::pluck('name','id')->all();
+
+        return view('admin.distributor_changepassword',compact('users'));
+        
+    }
+
 
     public function changePassword(Request $request)
     {

@@ -28,6 +28,8 @@ Route::group(['middleware'=>'adminm'], function() {
     Route::post('getreports', 'admin\ReportController@getreports')->name('getreports');	
     Route::match(['get','post'],'change-password','admin\AdminLoginController@changePassword')->name('admin.changepassword');
     Route::get('logout','admin\AdminLoginController@logout')->name('admin.logout');
+    Route::match(['get','post'],'change-distributor_password','admin\AdminLoginController@distributor_changePassword')->name('admin.distributor_changepassword');
+
 
     Route::group([ 'prefix' => 'distributors',], function () {
         Route::get('/', 'admin\DistributorController@index')->name('distributor.index');
